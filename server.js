@@ -17,9 +17,12 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb://localhost/budget", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  retryWrites: true,
+  w: "majority",
 });
 
+mongoose.Promise = global.Promise;
 // routes
 app.use(require("./routes/api.js"));
 
