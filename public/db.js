@@ -1,4 +1,4 @@
-
+//create the database and set it to the "MyBudget" table in server.js.
 let db;
 const request = indexedDB.open("MyBudget", 1);
 
