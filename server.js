@@ -15,6 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+/*
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/MyBudget" || 3000, {
   useNewUrlParser: true,
@@ -24,6 +25,16 @@ mongoose.connect(
 });
 
 mongoose.Promise = global.Promise;
+*/
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/MyBudget" ,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  }
+);
 // routes
 app.use(require("./routes/api.js"));
 /*
