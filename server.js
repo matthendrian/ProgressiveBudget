@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/MyBudget", {
+  process.env.MONGODB_URI || "mongodb://localhost/MyBudget" || 3000, {
   useNewUrlParser: true,
   useFindAndModify: false,
   retryWrites: true,
@@ -26,6 +26,10 @@ mongoose.connect(
 mongoose.Promise = global.Promise;
 // routes
 app.use(require("./routes/api.js"));
+/*
+var port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
+*/
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
